@@ -14,3 +14,4 @@ class Patient(models.Model):
     patient_notes = models.CharField(max_length=250)
     studies_using_data = models.CharField(max_length=250)
     people_currently_analyzing = models.CharField(max_length=50)
+    patient_source = models.CharField(max_length=100, default='None')
