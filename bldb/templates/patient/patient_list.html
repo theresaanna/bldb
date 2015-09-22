@@ -1,5 +1,6 @@
 {% for patient in patient_list %}
 <p>
+<a href="{% url 'patient' pk=patient.subject_number %}">Patient page</a>
 Subject number: {{ patient.subject_number }}
 Date Added: {{ patient.date_added }}
 Lesion Location: {{ patient.lesion_location }}

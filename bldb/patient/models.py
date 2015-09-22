@@ -1,7 +1,7 @@
 from django.db import models
 
 class Patient(models.Model):
-    subject_number = models.IntegerField()
+    subject_number = models.IntegerField(primary_key=True)
     date_added = models.DateField()
     added_by = models.CharField(max_length=100)
     date_of_birth = models.DateField()
