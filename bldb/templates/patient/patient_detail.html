@@ -1,14 +1,23 @@
-{{ patient.subject_number }}
-{{ patient.date_added }}
-{{ patient.added_by }}
-{{ patient.date_of_birth }}
-{{ patient.gender }}
-{{ patient.lesion_location }}
-{{ patient.lesion_etiology }}
-{{ patient.incident_date }}
-{{ patient.incident_date_is_exact }}
-{{ patient.type_of_np_data }}
-{{ patient.patient_notes }}
-{{ patient.studies_using_data }}
-{{ patient.people_currently_analyzing }}
-{{ patient.patient_source }}
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Patient Profile - {{ patient.subject_number }}</h2>
+<div class="col-sm-6">
+    <ul class="list-group">
+        <li class="list-group-item"><strong>Subject Number:</strong> {{ patient.subject_number }}</li>
+        <li class="list-group-item"><strong>Date Added:</strong> {{ patient.date_added }}</li>
+        <li class="list-group-item"><strong>Added By:</strong> {{ patient.added_by }}</li>
+        <li class="list-group-item"><strong>DOB:</strong> {{ patient.date_of_birth }}</li>
+        <li class="list-group-item"><strong>Sex:</strong> {{ patient.gender }}
+        <li class="list-group-item"><strong>Lesion Location:</strong> {{ patient.lesion_location }}</li>
+        <li class="list-group-item"><strong>Lesion Etiology:</strong> {{ patient.lesion_etiology }}</li>
+        <li class="list-group-item"><strong>Incident Date:</strong> {{ patient.incident_date }}</li>
+        <li class="list-group-item"><strong>Incident Date is Exact:</strong> {{ patient.incident_date_is_exact }}</li>
+        <li class="list-group-item"><strong>Type of NP Data:</strong> {{ patient.type_of_np_data }}</li>
+        <li class="list-group-item"><strong>Patient Notes:</strong> {{ patient.patient_notes }}</li>
+        <li class="list-group-item"><strong>Studies Using Patient Data:</strong> {{ patient.studies_using_data }}</li>
+        <li class="list-group-item"><strong>People Currently Analyzing Patient Data:</strong> {{ patient.people_currently_analyzing }}</li>
+        <li class="list-group-item"><strong>Patient Soure:</strong> {{ patient.patient_source }}</li>
+    </ul>
+</div>
+{% endblock %}

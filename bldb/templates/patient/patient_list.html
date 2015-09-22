@@ -1,8 +1,35 @@
-{% for patient in patient_list %}
-<p>
-<a href="{% url 'patient' pk=patient.subject_number %}">Patient page</a>
-Subject number: {{ patient.subject_number }}
-Date Added: {{ patient.date_added }}
-Lesion Location: {{ patient.lesion_location }}
-</p>
-{% endfor %}
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Browsing {{ patient_list.count }} Patients</h2>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Subject Number</th>
+            <th>Date Added</th>
+            <th>Added By</th>
+            <th>DOB</th>
+            <th>Sex</th>
+            <th>Lesion Location</th>
+            <th>Lesion Etiology</th>
+            <th>Incident Date</th>
+            <th>Patient Source</th>
+        </tr>
+        <tbody>
+        {% for patient in patient_list %}
+            <tr>
+                <td><a href="{% url 'patient' pk=patient.subject_number %}">{{ patient.subject_number }}</a></td>
+                <td>{{ patient.date_added }}</td>
+                <td>{{ patient.added_by }}</td>
+                <td>{{ patient.date_of_birth }}</td>
+                <td>{{ patient.gender }}</td>
+                <td>{{ patient.lesion_location }}</td>
+                <td>{{ patient.lesion_etiology }}</td>
+                <td>{{ patient.incident_date }}</td>
+                <td>{{ patient.patient_source }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </thead>
+</table>
+{% endblock %}
